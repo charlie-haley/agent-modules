@@ -20,6 +20,12 @@ argument "tenant" {
   default = ".*"
 }
 
+argument "job_label" {
+  optional = true
+  default = "integrations/kubernetes/coredns"
+  // comment = "The job label to add for all coredns"
+}
+
 argument "clustering" {
   // comment = "Whether or not clustering should be enabled"
   optional = true
@@ -98,6 +104,7 @@ module.git "relabelings_kube_dns" {
   revision = argument.git_rev.value
   pull_frequency = argument.git_pull_freq.value
   path = "modules/kubernetes/metrics/relabelings/kube-dns.river"
+  job_label = argument.job_label.value
 
   arguments {
     forward_to = argument.forward_to.value
