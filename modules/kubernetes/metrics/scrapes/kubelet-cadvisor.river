@@ -96,5 +96,6 @@ module.git "relabelings_kubelet_cadvisor" {
 
   arguments {
     forward_to = argument.forward_to.value
+    job_label = argument.job_label.value
   }
 }

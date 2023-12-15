@@ -108,5 +108,6 @@ module.git "relabelings_kube_dns" {
 
   arguments {
     forward_to = argument.forward_to.value
+    job_label = argument.job_label.value
   }
 }
